@@ -1,0 +1,30 @@
+﻿<Window x:Class="S1_Вариант3.Windows.ConfirmBookingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:S1_Вариант3.Windows"
+        mc:Ignorable="d"
+        Title="Billing Confirmation" Height="300" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid>
+            <Image Source="/S1_Вариант3;component/Resources/photo.jpg" Stretch="Fill" Opacity="0.7" ></Image>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="TicketNumbers_Label" Grid.Row="0" Margin="20,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Content=""/>
+            <Label x:Name="TotalAmount_Label" Grid.Row="1" Margin="20,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Total amount: "/>
+            <Label Grid.Row="1" Margin="20,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Paid using: "/>
+            <RadioButton x:Name="CreditCard_RadioButton" IsChecked="True" Grid.Row="1" Margin="50,60,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Credit Card"></RadioButton>
+            <RadioButton x:Name="Cash_RadioButton" Grid.Row="1" Margin="50,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Cash"></RadioButton>
+            <RadioButton x:Name="Voucher_RadioButton" Grid.Row="1" Margin="50,100,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Voucher"></RadioButton>
+
+            <Button x:Name="IssueTickets_Button" Grid.Row="1" VerticalAlignment="Bottom" Style="{StaticResource GenericButtonStyle}" HorizontalAlignment="Center" Width="90" Margin="-120,0,0,0" Content="Issue tickets" Click="IssueTickets_Button_Click"></Button>
+            <Button x:Name="Cancel_Button" Grid.Row="1" VerticalAlignment="Bottom" Style="{StaticResource ExitButtonStyle}" HorizontalAlignment="Center" Width="60" Margin="120,0,0,0" Content="Cancel" Click="Cancel_Button_Click"></Button>
+        </Grid>
+    </Grid>
+</Window>

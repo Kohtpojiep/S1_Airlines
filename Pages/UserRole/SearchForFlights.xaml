@@ -1,0 +1,152 @@
+﻿<Page x:Class="S1_Вариант3.Pages.UserRole.SearchForFlights"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:S1_Вариант3.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SearchForFlights">
+
+    <Grid>
+        <Grid>
+            <Image Opacity="0.5" Source="/S1_Вариант3;component/Resources/photo.jpg" Stretch="Fill"></Image>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="125"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="FilterGrid" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="15"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Search Parameters"></Label>
+                <Grid Grid.Row="1" Grid.Column="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Content="From" HorizontalContentAlignment="Center"></Label>
+                    <ComboBox x:Name="AirportListFrom_ComboBox" SelectedIndex="0" DisplayMemberPath="CountryShort" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130"/>
+
+                    <RadioButton x:Name="Return_RadioButton" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalContentAlignment="Left" GroupName="StoronaGroup" Content="Return" Checked="Return_RadioButton_Checked"></RadioButton>
+                    <RadioButton x:Name="OneWay_RadioButton" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" GroupName="StoronaGroup" Content="One way" Checked="OneWay_RadioButton_Checked"></RadioButton>
+                </Grid>
+
+
+                <Grid Grid.Row="1" Grid.Column="2" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Content="To" Margin="10,0,0,0" HorizontalAlignment="Left" HorizontalContentAlignment="Right"></Label>
+                    <ComboBox x:Name="AirportListTo_ComboBox" SelectedIndex="0" DisplayMemberPath="CountryShort" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Margin="40,0,0,0"/>
+
+                    <Label Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Content="Outbound" Margin="0,0,0,0" HorizontalAlignment="Left" HorizontalContentAlignment="Right"></Label>
+                    <DatePicker x:Name="Outbound_DatePicker" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="120" Margin="70,0,0,0"/>
+                    <!-- Серьезно... -->
+                    <Label Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Content="Cabin Type" Margin="10,0,0,0" HorizontalAlignment="Left" HorizontalContentAlignment="Right"></Label>
+                    <ComboBox x:Name="CabinType_ComboBox" SelectedIndex="0" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" Margin="100,0,0,0"/>
+
+                    <Grid Grid.Row="1" Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label VerticalAlignment="Center" Content="Return" Margin="0,0,0,0" HorizontalAlignment="Left" HorizontalContentAlignment="Right"></Label>
+                        <DatePicker x:Name="Return_DatePicker" VerticalAlignment="Center" HorizontalAlignment="Left" Width="120" Margin="50,0,0,0"/>
+
+                        <Button x:Name="Apply_Button" Grid.Column="1" VerticalAlignment="Center" Content="Apply" HorizontalAlignment="Center" Width="80" Click="Apply_Button_Click"/>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label HorizontalAlignment="Left" Grid.Row="0" Content="Outbound flight details:" Margin="20,0,0,0" VerticalAlignment="Center"></Label>
+                <CheckBox x:Name="OutboundDisplayOption_CheckBox" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" Content="Display three days before and after"></CheckBox>
+
+                <DataGrid x:Name="OutboundScheludes_DataGrid" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Grid.Row="1" Margin="10,0,10,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="From" Binding="{Binding From}" Width="0.75*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="To" Binding="{Binding To}" Width="0.5*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="1.5*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Flight number(s)" Binding="{Binding FlightNumbers}" Width="2.5*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Cabin Price" Binding="{Binding Price}" Width="2*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Number of stops" Binding="{Binding NumberOfStops}" Width="1.5*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label HorizontalAlignment="Left" Grid.Row="0" Content="Return flight details:" Margin="20,0,0,0" VerticalAlignment="Center"></Label>
+                <CheckBox x:Name="ReturnDisplayOption_CheckBox" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" Content="Display three days before and after"></CheckBox>
+                
+                <DataGrid x:Name="ReturnScheludes_DataGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" SelectionMode="Single" Margin="10,0,10,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="From" Binding="{Binding From}" Width="0.75*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="To" Binding="{Binding To}" Width="0.5*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="1.5*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Flight number(s)" Binding="{Binding FlightNumbers}" Width="2.5*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Cabin Price" Binding="{Binding Price}" Width="2*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Number of stops" Binding="{Binding NumberOfStops}" Width="1.5*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+            <Grid x:Name="ScheludesButtonsGrid" Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBox x:Name="PassengersCount_TextBox"  Grid.Column="2" Grid.Row="1" Width="45" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+                <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Content="Pessengers" Margin="0,0,35,0" VerticalAlignment="Top"></Label>
+                <Button x:Name="BookingFlight_Button" Content="Book flight" Grid.Column="3" Grid.Row="1" Margin="50,0,50,0" Style="{StaticResource GenericButtonStyle}" Click="BookingFlight_Button_Click"/>
+                <Button x:Name="Exit_Button" Content="Exit" Grid.Column="4" Grid.Row="1" Margin="60,3,60,3" Style="{StaticResource ExitButtonStyle}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

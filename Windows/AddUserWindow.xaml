@@ -1,0 +1,66 @@
+﻿<Window x:Class="S1_Вариант3.Windows.AddUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:S1_Вариант3.Windows"
+        mc:Ignorable="d"
+        Title="Add user" Height="342.131" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/S1_Вариант3;component/Resources/icon.png">
+    <Grid>
+        <Grid x:Name="DecorationsGrid">
+            <Image Opacity="0.4"  Source="/S1_Вариант3;component/Resources/photo.jpg" Stretch="Fill"></Image>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.25*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="InputElementsGrid" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="EmailTB" Grid.Row="1" Margin="0,5,20,5"></TextBox>
+                <TextBox x:Name="FirstnameTB" Grid.Row="2" Margin="0,5,20,5"></TextBox>
+                <TextBox x:Name="LastnameTB" Grid.Row="3" Margin="0,5,20,5" ></TextBox>
+                <ComboBox x:Name="OfficeCB" Grid.Row="4" Margin="0,5,20,5" DisplayMemberPath="Name"></ComboBox>
+                <DatePicker x:Name="BirthdateDP" Grid.Row="5" Margin="0,5,20,5"></DatePicker>
+                <PasswordBox x:Name="PasswordPB" Grid.Row="6" Margin="0,5,20,5"></PasswordBox>
+            </Grid>
+
+            <Grid x:Name="LabelsGrid" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="EmailLabel" Content="Email address" Grid.Row="1" Margin="0,0,0,0"/>
+                <Label x:Name="FirstnameLabel" Content="First name" Grid.Row="2" Margin="0,0,0,0"/>
+                <Label x:Name="LastnameLabel" Content="Last name" Grid.Row="3" Margin="0,0,0,0"/>
+                <Label x:Name="OfficeLabel" Content="Office name" Grid.Row="4" Margin="0,0,0,0"/>
+                <Label x:Name="BirthdateLabel" Content="Birthdate" Grid.Row="5" Margin="0,0,0,0" FontFamily="Tex"/>
+                <Label x:Name="PasswordLabel" Content="Password" Grid.Row="6" Margin="0,0,0,0"/>
+            </Grid>
+
+            <Button x:Name="SaveBT" VerticalAlignment="Bottom" Style="{StaticResource GenericButtonStyle}" Grid.Column="1" Grid.Row="2" Height="25" Width="80" Content="Save" Margin="0,0,0,20" Click="SaveBT_Click" ></Button>
+            <Button x:Name="CancelBT" VerticalAlignment="Bottom" Style="{StaticResource ExitButtonStyle}" Grid.Column="2" Grid.Row="2" Height="25" Width="80" Content="Cancel" Margin="0,0,20,20" Click="CancelBT_Click" ></Button>
+        </Grid>
+    </Grid>
+</Window>

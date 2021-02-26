@@ -1,0 +1,15 @@
+﻿<Window x:Class="S1_Вариант3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:S1_Вариант3"
+        mc:Ignorable="d"
+        Title="AMONIC Airlines" Height="450" Width="800" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="Resources/icon.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+    </Grid>
+</Window>

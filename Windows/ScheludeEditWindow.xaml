@@ -1,0 +1,38 @@
+﻿<Window x:Class="S1_Вариант3.Windows.ScheludeEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:S1_Вариант3.Windows"
+        mc:Ignorable="d"
+        Title="Schelude Edit" Height="350" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Grid>
+            <Image Opacity="0.4" Source="/S1_Вариант3;component/Resources/photo.jpg" Stretch="Fill"></Image>
+        </Grid>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Label Content="Flight route" HorizontalAlignment="Left" Margin="52,32,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="FromCountry_Label" Content="From:" HorizontalAlignment="Left" Margin="52,71,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="ToCountry_Label" Content="To:" HorizontalAlignment="Left" Margin="170,71,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Aircraft_Label" Content="Aircraft: " HorizontalAlignment="Left" Margin="290,71,0,0" VerticalAlignment="Top"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Label Content="Date:" HorizontalAlignment="Left" Margin="45,74,0,0" VerticalAlignment="Top"/>
+                <DatePicker x:Name="Date_DatePicker" HorizontalAlignment="Left" Height="23" Margin="92,78,0,0" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Time:" HorizontalAlignment="Left" Margin="257,74,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="Time_TextBox" HorizontalAlignment="Left" Height="23" Margin="302,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62"/>
+                <Label Content="Economy price: $" HorizontalAlignment="Left" Margin="381,74,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="EconomyPrice_TextBox" HorizontalAlignment="Left" Height="23" Margin="492,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"/>
+                <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="326,137,0,0" VerticalAlignment="Top" Width="102" Height="30" Style="{StaticResource GenericButtonStyle}" Click="UpdateButton_Click"/>
+                <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="459,137,0,0" VerticalAlignment="Top" Width="103" Height="30" Style="{StaticResource ExitButtonStyle}" Click="CancelButton_Click"/>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

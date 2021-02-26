@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dccc2b27f37740f58f12285270445851" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="Session1_3.Aircraft" Width="1.5" PointX="3.75" PointY="1.375" />
+        <EntityTypeShape EntityType="Session1_3.Billings" Width="1.5" PointX="10.5" PointY="7.125" />
+        <EntityTypeShape EntityType="Session1_3.Booking_Persons" Width="1.5" PointX="10.5" PointY="4.25" />
+        <EntityTypeShape EntityType="Session1_3.Bookings" Width="1.5" PointX="8.25" PointY="4.25" />
+        <EntityTypeShape EntityType="Session1_3.Countries" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="Session1_3.Flight_Scheludes" Width="1.5" PointX="6" PointY="3.5" />
+        <EntityTypeShape EntityType="Session1_3.Loginings" Width="1.5" PointX="5.25" PointY="8.375" />
+        <EntityTypeShape EntityType="Session1_3.Offices" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="Session1_3.Persons" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="Session1_3.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Session1_3.Users" Width="1.5" PointX="3" PointY="8" />
+        <AssociationConnector Association="Session1_3.FK_FlightSchelude_Aircraft" />
+        <AssociationConnector Association="Session1_3.FK_Billing_Booking" />
+        <AssociationConnector Association="Session1_3.FK_BookingPersons_Booking" />
+        <AssociationConnector Association="Session1_3.FK_BookingPersons_Person" />
+        <AssociationConnector Association="Session1_3.FK_Bookings_FlightSchelude" />
+        <AssociationConnector Association="Session1_3.FK_FlightSchelude_FromCountry" />
+        <AssociationConnector Association="Session1_3.FK_FlightSchelude_ToCountry" />
+        <AssociationConnector Association="Session1_3.FK_Person_Country" />
+        <AssociationConnector Association="Session1_3.FK_Logs_Users" />
+        <AssociationConnector Association="Session1_3.FK_Users_Offices" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
